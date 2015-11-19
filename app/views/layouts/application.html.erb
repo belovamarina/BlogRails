@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlogRails</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link data-require="bootstrap@3.3.5" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link data-require="bootstrap@3.3.5" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css" />
+    <link data-require="bootstrap@3.3.5" data-semver="3.3.5" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <script data-require="bootstrap@3.3.5" data-semver="3.3.5" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+</head>
+<body>
+<div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <ul class="nav navbar-nav">
+            <%= link_to 'Last articles', articles_path, class: "blog-nav-item" %> 
+            <%= link_to 'New article', new_article_path, class: "blog-nav-item" %>
+            <%= link_to 'About', about_path, class: "blog-nav-item" %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+            	Hello, <%= current_user.username %>!
+            	<%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "blog-nav-item"  %>
+            <% else %>
+            	<%= link_to 'Sign in', new_user_session_path, class: "blog-nav-item" %> 
+            <% end %>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+			<div>
+			      <%if alert && alert.length > 0 then %>
+			          <div class="alert alert-warning"><%=alert%></div>
+			      <% end %>
+			      <%if notice && notice.size > 0 then %>
+			      	<div class="alert alert-success"><%=notice%></div>
+			      	<% end %>
+			      <%= yield %>
+			</div>
+
+	</div>
+
+</body>
+</html>

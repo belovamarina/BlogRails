@@ -1,0 +1,29 @@
+<div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Listing articles:</h1>
+        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+      </div>
+
+
+  <div class="row">
+
+          <div class="col-sm-8 blog-main">
+
+            <% @articles.each do |article| %>
+              <div class="blog-post">
+              <h2 class="blog-post-title"><%= link_to article.title, article_path(article) %></h2>
+              <p class="blog-post-meta">  <%= truncate(article.text, length: 100, separator: ' ', omission: '... (continued)') %><br>
+              <br>
+              <strong>Written by <%= article.author %></strong>
+              <br>
+              <% if can? :manage, article %>
+                <%= link_to 'Редактировать', edit_article_path(article) %> |
+                <%= link_to 'Удалить', article_path(article), method: :delete, data: { confirm: 'Вы уверены?' } %>
+              <% end %>
+              </p></div>
+            <% end %>
+
+          </div>
+  </div>
+</div>

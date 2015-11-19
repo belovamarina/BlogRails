@@ -1,0 +1,49 @@
+<div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">New article:</h1>
+        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+      </div>
+
+    <div class="row">
+
+	    <div class="col-sm-8 blog-main">
+
+			<%= form_for :article, url: articles_path do |f| %>
+			  <% if @article.errors.any? %>
+			    <div id="error_explanation">
+			      <h2>
+			        <%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:
+			      </h2>
+			      <ul>
+			        <% @article.errors.full_messages.each do |msg| %>
+			          <li><%= msg %></li>
+			        <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+
+				<div class="form-group">
+					<p> 
+						<%= f.label current_user.username %>
+						<%= f.hidden_field :user_id, value: current_user.id %>
+						<%= f.hidden_field :author, value: current_user.username %>
+
+					</p>
+					<p> 
+						<%= f.label :title %>
+						<%= f.text_field :title, class: "form-control" %>
+					</p>
+					<p> 
+						<%= f.label :text %>
+						<%= f.text_area :text, class: "form-control", rows: "10" %>
+					</p>
+					<p>
+						<%= f.submit class: 'btn btn-primary' %>
+					</p>
+				</div>
+
+			<% end %>
+		</div>
+	</div>
+</div>
