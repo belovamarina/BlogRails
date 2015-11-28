@@ -12,9 +12,19 @@ describe Article do
 	end
 
 	describe '#subject' do
+		it 'returns the title' do
 		#создаем объект
-		article = FactoryGirl.create(:article, title:"Lorem")
+		article = create(:article, title:"Lorem")
 		#assert, проверка
-		it {expect(article.subject).to eq 'Lorem'}
+		expect(article.subject).to eq 'Lorem'
 	end
+	end
+
+	describe '#last_comment' do
+		it 'returns the last comment' do
+		end
+	end
+
+
+
 end
