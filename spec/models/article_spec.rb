@@ -10,4 +10,11 @@ describe Article do
 		it { should have_many :comments	}
 		it { should belong_to :user	}
 	end
+
+	describe '#subject' do
+		#создаем объект
+		article = FactoryGirl.create(:article, title:"Lorem")
+		#assert, проверка
+		it {expect(article.subject).to eq 'Lorem'}
+	end
 end
