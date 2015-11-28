@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
-  validates :title, presence: true
-  validates :text, presence: true
+  validates :title, presence: true, length: { in: 2..40 }
+  validates :text, presence: true, length: { maximum: 2000 }
   has_many :comments, dependent: :destroy
   belongs_to :user
 
