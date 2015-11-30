@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
     
     if @contact.valid?
       @contact.save
+      notice = "Thank you"
     else
       render action: 'new'
     end
