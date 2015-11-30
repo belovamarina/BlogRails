@@ -1,28 +1,40 @@
-<h1>New contact</h1>
-<br>
-<%= form_for :contact, url: contacts_path do |f| %>
-	<% if @contact && @contact.errors.any? %>
-		<p>
-			<ul>
-				<% @contact.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
+<div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title"><%= t('contacts.contact_us') %></h1>
+        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+      </div>
+
+    <div class="row">
+
+	    <div class="col-sm-8 blog-main">
+			<br>
+			<%= form_for :contact, url: contacts_path do |f| %>
+				<% if @contact && @contact.errors.any? %>
+					<p>
+						<ul>
+							<% @contact.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+							<% end %>
+						</ul>
+						
+					</p>
 				<% end %>
-			</ul>
-			
-		</p>
-	<% end %>
-	<p> 
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-	</p>
-	<p> 
-		<%= f.label :message %>
-		<%= f.text_area :message %>
-	</p>
-	<p>
-		<%= f.submit 'Send message' %>
-	</p>
+				<p> 
+					<%= f.label :email %>
+					<%= f.text_field :email, class: "form-control" %>
+				</p>
+				<p> 
+					<%= f.label :message %>
+					<%= f.text_area :message, class: "form-control" %>
+				</p>
+				<p>
+					<%= f.submit 'Send message', class: 'btn btn-primary' %>
+				</p>
 
 
 
-<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
