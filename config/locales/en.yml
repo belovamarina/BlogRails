@@ -24,3 +24,7 @@ en:
 
   contacts:
     contact_us: "Contact us:"
+
+  articles:
+    new_article: "New article:"
+    article_details: "Post details:"
