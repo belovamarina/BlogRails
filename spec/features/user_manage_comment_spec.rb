@@ -18,17 +18,4 @@ feature "Manage comment" do
 
     end
 
-    # scenario "allows user to visit edit article page" do
-
-    #   visit edit_article_path(@article)
-    #   expect(page).to have_content "Edit article"
-    # end  
-
-    # scenario "allows a user to create comment" do
-    #   visit article_path(@article)
-    #   fill_in :comment_body, :with => 'capybaratestcomment'
-    #   click_button "Create Comment"
-
-    #   expect(page).to have_content 'capybaratestcomment'
-    # end
 end
